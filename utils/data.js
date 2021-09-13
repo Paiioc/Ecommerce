@@ -1,0 +1,65 @@
+import bcrypt from 'bcryptjs';
+const data = {
+  users: [
+    {
+      name: 'Paiioc',
+      email: 'paiioc69@gmail.com',
+      password: bcrypt.hashSync('Paiioc12@#'),
+      isAdmin: true,
+      isEditor: false,
+      isDeliverer: false,
+    },
+    {
+      name: 'Jane',
+      email: 'user@example.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: false,
+      isEditor: false,
+      isDeliverer: false,
+    },
+    {
+      name: 'sami',
+      email: 'edit@example.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: false,
+      isEditor: true,
+      isDeliverer: false,
+    },
+    {
+      name: 'Jane',
+      email: 'deliver@example.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: false,
+      isEditor: false,
+      isDeliverer: true,
+    },
+  ],
+  products: [
+    {
+      name: 'Free Shirt',
+      slug: 'free-shirt',
+      category: 'Shirts',
+      image: '/images/shirt1.jpg',
+      isFeatured: true,
+      price: 70,
+      brand: 'Nike',
+      rating: 4.5,
+      numReviews: 10,
+      countInStock: 20,
+      description: 'A popular shirt',
+    },
+    {
+      name: 'Classic Pants',
+      slug: 'classic-pants',
+      category: 'Pants',
+      image: '/images/pants3.jpg',
+      price: 75,
+      brand: 'Casely',
+      rating: 4.5,
+      numReviews: 10,
+      countInStock: 20,
+      description: 'A popular pants',
+    },
+  ],
+};
+export default data;
