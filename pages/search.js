@@ -21,7 +21,7 @@ import axios from 'axios';
 import Rating from '@material-ui/lab/Rating';
 import { Pagination } from '@material-ui/lab';
 
-const PAGE_SIZE = 18;
+const PAGE_SIZE = 12;
 
 const prices = [
   {
@@ -38,7 +38,7 @@ const prices = [
   },
 ];
 
-const ratings = [1, 2, 3, 4, 5];
+const ratings = [1, 2, 3, 4];
 
 export default function Search(props) {
   const classes = useStyles();
@@ -114,7 +114,7 @@ export default function Search(props) {
   };
   return (
     <Layout title="Search">
-      <Grid className={classes.mt1} container spacing={1}>
+      <Grid style={{marginTop: '1rem'}} container spacing={1}>
         <Grid item md={3}>
           <List>
             <ListItem>
@@ -208,7 +208,7 @@ export default function Search(props) {
           </Grid>
           <Grid className={classes.mt1} container spacing={3}>
             {products.map((product) => (
-              <Grid item md={4} xs={6} key={product.name}>
+              <Grid item md={4} key={product.name}>
                 <ProductItem
                   product={product}
                   addToCartHandler={addToCartHandler}
@@ -217,7 +217,7 @@ export default function Search(props) {
             ))}
           </Grid>
           <Pagination
-            className={classes.mt2}
+            className={classes.mt3}
             defaultPage={parseInt(query.page || '1')}
             count={pages}
             onChange={pageHandler}

@@ -60,16 +60,14 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   main: {
-    minHeight: '80vh',
+    minHeight: '100vh',
   },
   footer: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    textAlign: 'center',
     background: 'black',
     color: 'white',
     marginTop: 30,
-    height: 40,
+    height: 30,
     textAlign: 'center',
   },
   section: {
@@ -120,6 +118,11 @@ const useStyles = makeStyles((theme) => ({
 
   mt2: { marginTop: '1rem', 
   justifyContent: 'center'},
+
+  mt3:{
+    display: 'flex',
+    justifyContent: 'center'
+  },
   
   ListItem: {
   cursor: 'pointer'

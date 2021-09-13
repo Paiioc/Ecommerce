@@ -4,6 +4,8 @@
   "rules": {
     "react-hooks/exhaustive-deps": "off",
     "react/jsx-key": "off",
+    "import\no-anonymous-default-export": "off",
+    "react/display-name": "off",
     "no-extra-semi": "off"
   }
 }
