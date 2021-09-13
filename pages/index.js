@@ -14,6 +14,7 @@ import { useContext } from 'react';
 import { Store } from '../utils/Store';
 import ProductItem from '../components/ProductItem';
 import useStyles from '../utils/styles';
+import Contact from "../components/Contactform";
 
 
 export default function Home(props) {
@@ -126,6 +127,7 @@ export default function Home(props) {
       >More</Button>
       </NextLink>
       </div>
+      <Contact/>
     </Layout>
   );
 } 

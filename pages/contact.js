@@ -1,4 +1,4 @@
-import Contact from "../components/ContactForm";
+import Contact from "../components/Contactform";
 import Head from 'next/head'
 import Layout from "../components/Layout"
 
