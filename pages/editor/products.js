@@ -9,8 +9,6 @@ import React, { useEffect, useContext, useReducer } from "react";
 import {
   CircularProgress,
   Grid,
-  List,
-  ListItem,
   Typography,
   Card,
   Button,
@@ -26,6 +24,7 @@ import { Store } from "../../utils/Store";
 import Layout from "../../components/Layout";
 import useStyles from "../../utils/styles";
 import { useSnackbar } from "notistack";
+
 
 function reducer(state, action) {
   switch (action.type) {
@@ -135,16 +134,8 @@ function EditorProdcuts() {
           xs={12}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <Card className={classes.section}>
-            <List>
-              <ListItem>
-                <Grid container alignItems="center">
-                  <Grid item xs={6}>
-                    <Typography component="h1" variant="h1">
-                      Products
-                    </Typography>
-                    {loadingDelete && <CircularProgress />}
-                  </Grid>
+         
+<Grid style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                   <Grid align="right" item xs={6}>
                     <Button
                       onClick={createHandler}
@@ -155,11 +146,12 @@ function EditorProdcuts() {
                       Create
                     </Button>
                     {loadingCreate && <CircularProgress />}
-                  </Grid>
+</Grid>
                 </Grid>
-              </ListItem>
+          <Card className={classes.section}>
+                    {loadingDelete && <CircularProgress />}
 
-              <ListItem>
+
                 {loading ? (
                   <CircularProgress />
                 ) : error ? (
@@ -191,18 +183,15 @@ function EditorProdcuts() {
                             <TableCell>{product.rating}</TableCell>
                             <TableCell>
                               <NextLink
-                                href={`/editor/product/${product._id}`}
+                                href={`/admin/product/${product._id}`}
                                 passHref
                               >
-                                <Button
-                                  size="small"
-                                  variant="contained"
-                                  endIcon={<EditIcon />}
-                                >
+                                <Button style={{margin: 5}}  size="small" variant="contained" endIcon={<EditIcon/>}>
                                   Edit
                                 </Button>
-                              </NextLink>{" "}
+                              </NextLink>{' '}
                               <Button
+                              style={{margin: 5}}
                                 onClick={() => deleteHandler(product._id)}
                                 size="small"
                                 variant="contained"
@@ -217,8 +206,7 @@ function EditorProdcuts() {
                     </Table>
                   </TableContainer>
                 )}
-              </ListItem>
-            </List>
+
           </Card>
         </Grid>
       </Grid>

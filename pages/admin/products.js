@@ -28,6 +28,7 @@ import Layout from '../../components/Layout';
 import useStyles from '../../utils/styles';
 import { useSnackbar } from 'notistack';
 
+
 function reducer(state, action) {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -157,16 +158,12 @@ function AdminProdcuts() {
           </Card>
         </Grid>
         <Grid item md={9} xs={12}>
-          <Card className={classes.section}>
-            <List>
-              <ListItem>
-                <Grid container alignItems="center">
-                  <Grid item xs={6}>
-                    <Typography component="h1" variant="h1">
+
+<Grid style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                    <Typography component="h1" variant="h1" style={{textAlign: 'center'}}>
                       Products
                     </Typography>
-                    {loadingDelete && <CircularProgress />}
-                  </Grid>
+  
                   <Grid align="right" item xs={6}>
                     <Button
                       onClick={createHandler}
@@ -177,11 +174,12 @@ function AdminProdcuts() {
                       Create
                     </Button>
                     {loadingCreate && <CircularProgress />}
-                  </Grid>
+</Grid>
                 </Grid>
-              </ListItem>
+          <Card className={classes.section}>
+                    {loadingDelete && <CircularProgress />}
 
-              <ListItem>
+
                 {loading ? (
                   <CircularProgress />
                 ) : error ? (
@@ -216,11 +214,12 @@ function AdminProdcuts() {
                                 href={`/admin/product/${product._id}`}
                                 passHref
                               >
-                                <Button size="small" variant="contained" endIcon={<EditIcon/>}>
+                                <Button style={{margin: 5}}  size="small" variant="contained" endIcon={<EditIcon/>}>
                                   Edit
                                 </Button>
                               </NextLink>{' '}
                               <Button
+                              style={{margin: 5}}
                                 onClick={() => deleteHandler(product._id)}
                                 size="small"
                                 variant="contained"
@@ -235,8 +234,7 @@ function AdminProdcuts() {
                     </Table>
                   </TableContainer>
                 )}
-              </ListItem>
-            </List>
+
           </Card>
         </Grid>
       </Grid>

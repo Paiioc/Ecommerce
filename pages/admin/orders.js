@@ -23,6 +23,7 @@ import { getError } from '../../utils/error';
 import { Store } from '../../utils/Store';
 import Layout from '../../components/Layout';
 import useStyles from '../../utils/styles';
+import Paper from '@material-ui/core/Paper';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -96,21 +97,18 @@ function AdminOrders() {
           </Card>
         </Grid>
         <Grid item md={9} xs={12}>
-          <Card className={classes.section}>
-            <List>
-              <ListItem>
-                <Typography component="h1" variant="h1">
+                <Typography component="h1" variant="h1" style={{textAlign: 'center'}}>
                   Orders
                 </Typography>
-              </ListItem>
+          <Card className={classes.section}>
 
-              <ListItem>
+
                 {loading ? (
                   <CircularProgress />
                 ) : error ? (
                   <Typography className={classes.error}>{error}</Typography>
                 ) : (
-                  <TableContainer>
+                  <TableContainer component={Paper}>
                     <Table>
                       <TableHead>
                         <TableRow>
@@ -153,8 +151,6 @@ function AdminOrders() {
                     </Table>
                   </TableContainer>
                 )}
-              </ListItem>
-            </List>
           </Card>
         </Grid>
       </Grid>

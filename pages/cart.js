@@ -74,24 +74,20 @@ function CartScreen() {
                   {cartItems.map((item) => (
                     <TableRow key={item._id}>
                       <TableCell>
-                        <NextLink href={`/product/${item.slug}`} passHref>
-                          <Link>
+
                             <Image
                               src={item.image}
                               alt={item.name}
                               width={50}
                               height={50}
                             ></Image>
-                          </Link>
-                        </NextLink>
+
                       </TableCell>
 
                       <TableCell>
-                        <NextLink href={`/product/${item.slug}`} passHref>
-                          <Link>
+
                             <Typography>{item.name}</Typography>
-                          </Link>
-                        </NextLink>
+
                       </TableCell>
                       <TableCell align="right">
                         <Select

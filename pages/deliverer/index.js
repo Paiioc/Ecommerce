@@ -6,8 +6,6 @@ import React, { useEffect, useContext, useReducer } from 'react';
 import {
   CircularProgress,
   Grid,
-  List,
-  ListItem,
   Typography,
   Card,
   Button,
@@ -22,6 +20,8 @@ import { getError } from '../../utils/error';
 import { Store } from '../../utils/Store';
 import Layout from '../../components/Layout';
 import useStyles from '../../utils/styles';
+import Paper from '@material-ui/core/Paper';
+
 
 function reducer(state, action) {
   switch (action.type) {
@@ -70,20 +70,14 @@ function DelivererOrders() {
       <Grid>
         <Grid style={{display: 'flex', justifyContent: 'center'}}>
           <Card className={classes.section}>
-            <List>
-              <ListItem>
-                <Typography component="h1" variant="h1">
-                  Orders
-                </Typography>
-              </ListItem>
 
-              <ListItem>
+
                 {loading ? (
                   <CircularProgress />
                 ) : error ? (
                   <Typography className={classes.error}>{error}</Typography>
                 ) : (
-                  <TableContainer>
+                  <TableContainer component={Paper}>
                     <Table>
                       <TableHead>
                         <TableRow>
@@ -105,7 +99,7 @@ function DelivererOrders() {
                             </TableCell>
                             <TableCell>{order.createdAt}</TableCell>
                             <TableCell>${order.totalPrice}</TableCell>
-                            <TableCell>
+                            <TableCell style={{width: 100}}>
                               {order.isPaid
                                 ? 'paid'
                                 : 'not paid'}
@@ -126,8 +120,6 @@ function DelivererOrders() {
                     </Table>
                   </TableContainer>
                 )}
-              </ListItem>
-            </List>
           </Card>
         </Grid>
       </Grid>

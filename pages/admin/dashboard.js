@@ -101,7 +101,7 @@ function AdminDashboard() {
                 ) : error ? (
                   <Typography className={classes.error}>{error}</Typography>
                 ) : (
-                  <Grid container spacing={5}>
+                  <Grid container spacing={3} md={12} xs={8}>
                     <Grid item md={3}>
                       <Card raised>
                         <CardContent>
@@ -153,7 +153,7 @@ function AdminDashboard() {
                         </CardActions>
                       </Card>
                     </Grid>
-                    <Grid item md={3}>
+                    <Grid item md={3} xs={6}>
                       <Card raised>
                         <CardContent>
                           <Typography variant="h1">
@@ -178,7 +178,7 @@ function AdminDashboard() {
                   Sales Chart
                 </Typography>
               </ListItem>
-              <ListItem>
+              <ListItem style={{marginLeft:'5', marginRight: '5'}}>
                 <Bar
                   data={{
                     labels: summary.salesData.map((x) => x._id),

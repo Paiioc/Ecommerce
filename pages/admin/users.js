@@ -26,6 +26,7 @@ import { Store } from '../../utils/Store';
 import Layout from '../../components/Layout';
 import useStyles from '../../utils/styles';
 import { useSnackbar } from 'notistack';
+import Paper from '@material-ui/core/Paper';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -132,23 +133,18 @@ function AdminUsers() {
           </Card>
         </Grid>
         <Grid item md={9} xs={12}>
-          <Card className={classes.section}>
-            <List>
-              <ListItem>
-                <Typography component="h1" variant="h1">
+                <Typography component="h1" variant="h1" style={{textAlign: 'center'}}>
                   Users
                 </Typography>
+          <Card className={classes.section}>
                 {loadingDelete && <CircularProgress />}
-              </ListItem>
-
-              <ListItem>
                 {loading ? (
                   <CircularProgress />
                 ) : error ? (
                   <Typography className={classes.error}>{error}</Typography>
                 ) : (
-                  <TableContainer>
-                    <Table>
+                  <TableContainer component={Paper}>
+                    <Table className={classes.table} aria-label="simple table">
                       <TableHead>
                         <TableRow>
                           <TableCell>ID</TableCell>
@@ -163,7 +159,7 @@ function AdminUsers() {
                       <TableBody>
                         {users.map((user) => (
                           <TableRow key={user._id}>
-                            <TableCell>{user._id.substring(20, 24)}</TableCell>
+                            <TableCell scope="row">{user._id.substring(20, 24)}</TableCell>
                             <TableCell>{user.name}</TableCell>
                             <TableCell>{user.email}</TableCell>
                             <TableCell>{user.isAdmin ? 'YES' : 'NO'}</TableCell>
@@ -174,11 +170,12 @@ function AdminUsers() {
                                 href={`/admin/user/${user._id}`}
                                 passHref
                               >
-                               <Button size="small" variant="contained" endIcon={<EditIcon/>}>
+                               <Button style={{margin: 5}} size="small" variant="contained" endIcon={<EditIcon/>}>
                                   Edit
                                 </Button>
                               </NextLink>{' '}
                               <Button
+                              style={{margin: 5}}
                                 onClick={() => deleteHandler(user._id)}
                                 size="small"
                                 variant="contained"
@@ -193,8 +190,6 @@ function AdminUsers() {
                     </Table>
                   </TableContainer>
                 )}
-              </ListItem>
-            </List>
           </Card>
         </Grid>
       </Grid>
