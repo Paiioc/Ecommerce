@@ -7,6 +7,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+      <meta name="fl-verify" content="ffc8596df8f4ada53cde9703542ac6fd"/>
         <link rel="icon" type="image/png" href="/images/paiioc2.png"/>
           <link
             rel="stylesheet"
