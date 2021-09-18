@@ -16,6 +16,8 @@ import ProductItem from '../components/ProductItem';
 import useStyles from '../utils/styles';
 import Contact from "../components/Contactform";
 
+export const config = {unstable_runtimeJS: false}
+
 
 export default function Home(props) {
   const breakPoints = [
